@@ -42,6 +42,11 @@ GifTagApp.config(['$routeProvider',
         templateUrl: 'partials/home.html'
       }).
 	  
+	  when('/gifPage/:tag,:search', {
+        templateUrl: 'partials/gifPage.html',
+        controller: 'gifCtrl'
+      }).
+	  
 	  /* Fyll ut med annat!
       when('/search', {
         templateUrl: 'partials/search.html',
