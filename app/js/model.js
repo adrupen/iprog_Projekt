@@ -7,7 +7,6 @@ GifTagApp.factory('Model', function ($resource) {
 	 
 	 this.twitter_consumer_key = 	'Yy9WFlP6w95JocdRCYd5fTNtG';
 	 this.twitter_consumer_secret = 	'o4HCaK5ncyxImoePJJwEyKrzvQ7q9B9ckJRRmvjWaYj6Gf8kcE';
-';
 
 	 // http://127.0.0.1:8000/ funkar för att hämta twitter api
 	 this.trendingHashTags = $resource('https://api.twitter.com/1.1/trends/place.json',{id:1});
