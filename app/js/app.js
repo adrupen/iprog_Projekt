@@ -47,18 +47,6 @@ GifTagApp.config(['$routeProvider',
         templateUrl: 'partials/gifPage.html',
         controller: 'gifCtrl'
       }).
-	  
-	  /* Fyll ut med annat!
-      when('/search', {
-        templateUrl: 'partials/search.html',
-        controller: 'SearchCtrl'
-      }).
-      when('/dish/:dishId', {
-        templateUrl: 'partials/dish.html',
-        controller: 'DishCtrl'
-      }).
-	  */
-      // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
         redirectTo: '/home'
       });

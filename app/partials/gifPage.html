@@ -14,14 +14,37 @@
 <body>
 
 	<div class="jumbotron">
-		<p>Upcoming holiday</p>
-		<a ng-href="#/gifPage/1,true" class="thumbnail"> {{holidays[0][0].date.slice(5,length)}} {{holidays[0][0].name}}</a>
+		<p>{{holidayTag}}</p>
 	</div>
 
+
 	<div class="container">
-		<div ng-repeat="holiday in holidays">
-			<div class="col-xs-6 col-md-3">
-				<a ng-href="#/gifPage/1,true" class="thumbnail">{{holiday[0].date.slice(5,length)}} {{holiday[0].name}}</a>
+		<div class="col-xs-3 col-md-3">
+			<div ng-repeat="gif in Col_1" style="padding: 1px;">
+				<a ng-href="#/SuperGif">
+					<img ng-src="{{gif.images.fixed_width.url}}"/>
+				</a>
+			</div>
+		</div>
+		<div class="col-xs-3 col-md-3">
+			<div ng-repeat="gif in Col_2" style="padding: 1px;">
+				<a ng-href="#/SuperGif">
+					<img ng-src="{{gif.images.fixed_width.url}}"/>
+				</a>
+			</div>
+		</div>
+		<div class="col-xs-3 col-md-3">
+			<div ng-repeat="gif in Col_3" style="padding: 1px;">
+				<a ng-href="#/SuperGif">
+					<img ng-src="{{gif.images.fixed_width.url}}"/>
+				</a>
+			</div>
+		</div>
+		<div class="col-xs-3 col-md-3">
+			<div ng-repeat="gif in Col_4"  style="padding: 1px;">
+				<a ng-href="#/SuperGif">
+					<img ng-src="{{gif.images.fixed_width.url}}"/>
+				</a>
 			</div>
 		</div>
 	</div>
