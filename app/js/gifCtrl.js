@@ -5,7 +5,7 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,Model) {
 
 	console.log($routeParams);
 
-   $scope.search = function(query) {
+	$scope.search = function(query) {
 	   $scope.status = "Loading Gifs...";
 	   
 	   Model.giphySearch.get({q:query},
@@ -18,7 +18,7 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,Model) {
 	   function(data){
 			 $scope.status = "There was an error";
 	   });
- 	}
+	}
 
 	if ($routeParams.search === "true"){
 		$scope.search($routeParams.tag);
