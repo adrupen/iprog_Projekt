@@ -21,6 +21,11 @@
 	<div class="container">
 		<div ng-repeat="holiday in holidays">
 			<div class="col-xs-6 col-md-3">
+				<div ng-controller="gifCtrl">
+					<div ng-init="search(holiday[0].name)">
+						<img ng-scr="gifs.data[0].images.fixed_height_still.url"/>
+					<div>
+				</div>
 				<a ng-href="#/gifPage/1,true" class="thumbnail">{{holiday[0].date.slice(5,length)}} {{holiday[0].name}}</a>
 			</div>
 		</div>
