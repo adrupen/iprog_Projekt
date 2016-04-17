@@ -4,6 +4,7 @@
 GifTagApp.factory('Model', function ($resource) {
 	
 	 this.storedGifs = new Array();
+	 this.homePageGifs = new Array();
 	 
 	 this.date = new Date();
 	 this.day = this.date.getDate();
@@ -18,6 +19,11 @@ GifTagApp.factory('Model', function ($resource) {
 	 //För att kunna lagra gifs till cookies, tänker mig att spara ett URL för varje räcker.
 	 this.store_gifs = function(gifs){	
 		 this.storedGifs = gifs;
+	 }
+	 
+	 this.addHomePageGif = function(gifUrl){
+		 this.homePageGifs.push(gifUrl);
+		 
 	 }
 	 
 	 this.get_gifs = function(){	

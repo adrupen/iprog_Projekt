@@ -1,9 +1,12 @@
 // För föstasidan som visar hash tags
 
-GifTagApp.controller('holidayCtrl', function ($scope,Model) {
-
+GifTagApp.controller('holidayCtrl', function ($scope, $controller, Model) {
 	
-   $scope.getHolidays = function() {
+	$controller('gifCtrl',{$scope: $scope});
+	
+	$gifArray = new Array();
+	
+	$scope.getHolidays = function() {
 	   $scope.status = "Loading Holidays...";
 	   
 	   Model.calendar.get({},
@@ -24,15 +27,21 @@ GifTagApp.controller('holidayCtrl', function ($scope,Model) {
 			 }
 			 
 			 upcoming.push.apply(upcoming, past);
-			 $scope.status = "Holidays loaded"
+			 $scope.status = "Holidays loaded";
 			 $scope.holidays = upcoming;
+			 /*
+			 for (holiday in upcoming){
+				 $scope.search(holiday.name, 1, true);
+				 
+			 }*/
 			 
 	   },
 	   function(data){
 			 $scope.status = "There was an error";
 	   });
- 	}
+	}
 
 	$scope.getHolidays();
+	$scope.homePageGifs = Model.homePageGifs;
 	
 });
