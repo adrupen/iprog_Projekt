@@ -1,0 +1,22 @@
+<ng-include src="'partials/header.html'" ng-controller="superGifCrtl"></ng-include>
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>SuperGif</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	</head>
+<body>
+
+	<div class="jumbotron">
+		<p>{{gif.slug}}</p>
+		<img ng-src="{{gif.images.fixed_width.url}}"/>
+	</div>
+
+	</body>
+</html>
