@@ -4,7 +4,7 @@
 GifTagApp.factory('Model', function ($resource) {
 
 	 this.storedGifs = new Array();
-	 this.homePageGifs = new Array();
+	 this.homePageGifs = new Object();
 
 	 this.date = new Date();
 	 this.day = this.date.getDate();
@@ -23,8 +23,8 @@ GifTagApp.factory('Model', function ($resource) {
 		 this.storedGifs = gifs;
 	 }
 
-	 this.addHomePageGif = function(gifUrl){
-		 this.homePageGifs.push(gifUrl);
+	 this.addHomePageGif = function(category, gifUrl){
+		 this.homePageGifs[gifUrl] = category;
 
 	 }
 
