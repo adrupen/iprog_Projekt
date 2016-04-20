@@ -1,10 +1,11 @@
 
 // Back End Modellen
 
-GifTagApp.factory('Model', function ($resource) {
+GifTagApp.factory('Model', function ($resource, $cookieStore) {
 
 	 this.storedGifs = new Array();
 	 this.homePageGifs = new Array();
+	 this.favoriteGifs = new Array()
 
 	 this.date = new Date();
 	 this.day = this.date.getDate();
@@ -31,6 +32,36 @@ GifTagApp.factory('Model', function ($resource) {
 	 this.get_gifs = function(){
 		 return this.storedGifs;
 	 }
+
+ 	this.addToFavorite = function(url) {
+		console.log(url)
+	    var flag = false;
+
+	    for (var i=0;i<this.favoriteGifs.length;i++){
+	      	if (this.favoriteGifs[i] == url){
+		        flag = true;
+	      }
+	    }
+	    
+	    if (flag == false){
+	    	this.favoriteGifs.push(url);
+	      	$cookieStore.put("favorite",this.favoriteGifs);
+		}
+	};
+
+	this.getFavoriteGifs = function() {
+
+		this.favoriteGifs = $cookieStore.get('favorite') 
+
+	};
+
+	this.removeGif = function(url) {
+		for (var i=0; i<this.favoriteGifs.length; i++){
+			$cookieStore.remove('favorite');
+		}
+
+
+	}
 
 
   // Angular service needs to return an object that has all the

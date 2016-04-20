@@ -1,9 +1,21 @@
-// F�r sida 2
-// S�ker ut Gifs beroende p� medskickad hashtag
-
-GifTagApp.controller('gifCtrl', function ($scope,$routeParams,Model) {
+GifTagApp.controller('favoriteGifCtrl', function ($scope,$routeParams,Model) {
 
 	$scope.holidayTag = $routeParams.tag;
+
+	// $scope.favoriteGif = new Array()
+	$scope.gifs = new Array()
+
+	$scope.addToFavorite = function(url) {
+		return Model.addToFavorite(url)
+	};
+
+	$scope.getGifCookies = function() {
+	   $scope.gifs = Model.getGifCookies()
+    };
+
+    $scope.getGifCookies = function() {
+	   $scope.gifs = Model.getGifCookies()
+    };
 
 	$scope.search = function(query, gifLimit, homepage) {
 	   if (homepage == undefined) homepage = false;
@@ -19,7 +31,6 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,Model) {
 			 else Model.store_gifs(data.data);
 
 			 $scope.divideCols();
-			 console.log(data);
 	   },
 	   function(data){
 			 $scope.status = "There was an error";
