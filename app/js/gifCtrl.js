@@ -11,15 +11,13 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,Model) {
 	   
 	   Model.giphySearch.get({q:query, limit: gifLimit},
 	   function(data){
-<<<<<<< HEAD
-			 
 			 if (data.data.length > 0){
 				 $scope.gifs=data.data;
 				 $scope.status = "Found " + data.data.length + " results";
 
 				 //console.log($scope.gifs[0].images.fixed_width);
 				 
-				 if($routeParams.search != true) {
+				 if(!$routeParams.search) {
 					 Model.addHomePageGif($scope.gifs[0].images.fixed_width.url, query);
 				 }
 				 else {
@@ -27,29 +25,20 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,Model) {
 					$scope.divideCols($scope.gifs);
 				 }
 			 }
-=======
-			 $scope.gifs=data.data;
-			 $scope.status = "Found " + data.data.length + " results";
-
-			//  console.log(data);
-			 if(homepage == true) Model.addHomePageGif($scope.gifs.images.fixed_width.url);
-			 else Model.store_gifs(data.data);
-
-			 $scope.divideCols();
-			 console.log(data);
->>>>>>> origin/master
 	   },
 	   function(data){
 			 $scope.status = "There was an error";
 	   });
 	}
-
-	if ($routeParams.search === "true"){
-		$scope.search($routeParams.tag, 50);
-	} else {
-		$scope.gifs = Model.get_gifs();
+	
+	$scope.init = function(){
+		if ($routeParams.search === "true"){
+			$scope.search($routeParams.tag, 50);
+		} else {
+			$scope.gifs = Model.get_gifs();
+		}
 	}
-
+	
 	$scope.divideCols = function(gifs){
 
 		$scope.Col_1 = new Array();
@@ -66,6 +55,15 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,Model) {
 
 		}
 	}
+
+	$scope.addToFavorite = function(url) {
+		console.log("boop");
+		Model.addToFavorite(url)
+	}
+
+    $scope.getGifCookies = function() {
+	   $scope.gifs = Model.getGifCookies()
+    }
 
 
 

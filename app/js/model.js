@@ -4,12 +4,14 @@
 GifTagApp.factory('Model', function ($resource, $cookieStore) {
 
 	 this.storedGifs = new Array();
-<<<<<<< HEAD
 	 this.homePageGifs = new Object();
-=======
-	 this.homePageGifs = new Array();
 	 this.favoriteGifs = new Array()
->>>>>>> origin/master
+	 
+	 /*
+	 if ($cookieStore.get('favorite') != undefined){
+		 this.favoriteGifs = $cookieStore.get('favorite');
+	 }
+		*/
 
 	 this.date = new Date();
 	 this.day = this.date.getDate();
@@ -38,7 +40,6 @@ GifTagApp.factory('Model', function ($resource, $cookieStore) {
 	 }
 
  	this.addToFavorite = function(url) {
-		console.log(url)
 	    var flag = false;
 
 	    for (var i=0;i<this.favoriteGifs.length;i++){
@@ -55,13 +56,19 @@ GifTagApp.factory('Model', function ($resource, $cookieStore) {
 
 	this.getFavoriteGifs = function() {
 
-		this.favoriteGifs = $cookieStore.get('favorite') 
+		return this.favoriteGifs;
+		//$cookieStore.get('favorite') ;
 
 	};
 
 	this.removeGif = function(url) {
 		for (var i=0; i<this.favoriteGifs.length; i++){
-			$cookieStore.remove('favorite');
+			if(this.favoriteGifs[i] == url){
+				this.favoriteGifs = this.favoriteGifs.splice(i,1);
+				console.log("removed")
+				console.log(this.favoriteGifs)
+			}
+			$cookieStore.put('favorite', this.favorite);
 		}
 
 
