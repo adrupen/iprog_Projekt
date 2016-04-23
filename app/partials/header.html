@@ -19,14 +19,12 @@
 			<div class="navbar-header">
 				<a class="navbar-brand" ng-href="#/home">HolidayGifs</a>
 			</div>
-			<div class="navbar-header">
-				<a class="navbar-brand" ng-href="#/favoriteGif">Favorite Gifs</a>
-			</div>
+			<a class="navbar-text" ng-href="#/favoriteGif">Favorite Gifs</a>
 			<form class="navbar-form navbar-right" role="search">
 		        <div class="form-group">
 	    	    	<input ng-model="query" class="form-control" placeholder="Search">
 	        	</div>
-	        	<button ng-click="search(query, 50)" class="btn btn-default">
+	        	<button ng-click="go(query)" class="btn btn-default">
 	        		<i class="glyphicon glyphicon-search"></i>
 				</button>
 	      </form>

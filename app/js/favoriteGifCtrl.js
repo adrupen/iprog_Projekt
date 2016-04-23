@@ -16,6 +16,7 @@ GifTagApp.controller('favoriteGifCtrl', function ($scope, $controller, Model) {
 		console.log("remove")
 		Model.removeGif(gif);
 		$scope.favGifs = Model.getFavoriteGifs();
+		$scope.divideCols($scope.favGifs);
 		
 	}
 });

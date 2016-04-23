@@ -1,12 +1,10 @@
-// F�r sida 2
-// S�ker ut Gifs beroende p� medskickad hashtag
 
-GifTagApp.controller('gifCtrl', function ($scope,$routeParams,Model) {
 
+GifTagApp.controller('gifCtrl', function ($scope,$routeParams,$location,Model) {
+	
 	$scope.holidayTag = $routeParams.tag;
 
 	$scope.search = function(query, gifLimit) {
-	   
 	   $scope.status = "Loading Gifs...";
 	   
 	   Model.giphySearch.get({q:query, limit: gifLimit},
@@ -29,6 +27,13 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,Model) {
 	   function(data){
 			 $scope.status = "There was an error";
 	   });
+	}
+	
+	$scope.go = function(query){
+		path = "/gifPage/"+query+"+holiday,true";
+		console.log(path);
+		$location.path(path);
+		$scope.holidayTag = "Search "+query;
 	}
 	
 	$scope.init = function(){

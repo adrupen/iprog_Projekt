@@ -7,11 +7,10 @@ GifTagApp.factory('Model', function ($resource, $cookieStore) {
 	 this.homePageGifs = new Object();
 	 this.favoriteGifs = new Array()
 	 
-	 /*
-	 if ($cookieStore.get('favorite') != undefined){
-		 this.favoriteGifs = $cookieStore.get('favorite');
+	 var testCookie = $cookieStore.get('favorite')
+	 if (testCookie != null){
+		 this.favoriteGifs = testCookie;
 	 }
-		*/
 
 	 this.date = new Date();
 	 this.day = this.date.getDate();
@@ -64,11 +63,9 @@ GifTagApp.factory('Model', function ($resource, $cookieStore) {
 	this.removeGif = function(url) {
 		for (var i=0; i<this.favoriteGifs.length; i++){
 			if(this.favoriteGifs[i] == url){
-				this.favoriteGifs = this.favoriteGifs.splice(i,1);
-				console.log("removed")
-				console.log(this.favoriteGifs)
+				this.favoriteGifs.splice(i,1);
 			}
-			$cookieStore.put('favorite', this.favorite);
+			$cookieStore.put('favorite', this.favoriteGifs);
 		}
 
 
