@@ -1,10 +1,17 @@
 
 // Back End Modellen
 
-GifTagApp.factory('Model', function ($resource) {
+GifTagApp.factory('Model', function ($resource, $cookieStore) {
 
 	 this.storedGifs = new Array();
-	 this.homePageGifs = new Array();
+	 this.homePageGifs = new Object();
+	 this.favoriteGifs = new Array()
+	 
+	 //$cookieStore.put('favorite', null);
+	 var testCookie = $cookieStore.get('favorite')
+	 if (testCookie != null){
+		 this.favoriteGifs = testCookie;
+	 }
 
 	 this.date = new Date();
 	 this.day = this.date.getDate();
@@ -23,14 +30,47 @@ GifTagApp.factory('Model', function ($resource) {
 		 this.storedGifs = gifs;
 	 }
 
-	 this.addHomePageGif = function(gifUrl){
-		 this.homePageGifs.push(gifUrl);
+	 this.addHomePageGif = function(category, gifUrl){
+		 this.homePageGifs[gifUrl] = category;
 
 	 }
 
 	 this.get_gifs = function(){
 		 return this.storedGifs;
 	 }
+
+ 	this.addToFavorite = function(url) {
+	    var flag = false;
+
+	    for (var i=0;i<this.favoriteGifs.length;i++){
+	      	if (this.favoriteGifs[i] == url){
+		        flag = true;
+	      }
+	    }
+	    
+	    if (flag == false){
+	    	this.favoriteGifs.push(url);
+	      	$cookieStore.put("favorite",this.favoriteGifs);
+		}
+	};
+
+	this.getFavoriteGifs = function() {
+
+		return this.favoriteGifs;
+		//$cookieStore.get('favorite') ;
+
+	};
+
+	this.removeGif = function(url) {
+		for (var i=0; i<this.favoriteGifs.length; i++){
+			if(this.favoriteGifs[i] == url){
+				this.favoriteGifs.splice(i,1);
+			}
+			$cookieStore.put('favorite', this.favoriteGifs);
+		}
+
+
+	}
 
 
   // Angular service needs to return an object that has all the

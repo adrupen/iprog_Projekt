@@ -1,29 +1,34 @@
 <ng-include src="'partials/header.html'" ng-controller="gifCtrl"></ng-include>
+<div ng-init="init()"></div>
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>GifTag</title>
-
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 	</head>
 <body>
 
 	<div class="jumbotron">
-		<p>{{holidayTag}}</p>
+		<p>Search: {{holidayTag}}</p>
 	</div>
-
-
+	
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GifTag</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+</head>
 	<div class="container">
 		<div class="col-xs-3 col-md-3">
-			<div ng-repeat="gif in Col_1" style="padding: 1px;">
+			<p>Press heart to save favorites</p>
+			<div ng-repeat="gif in Col_1" style="padding: 1px; position: relative; z-index: 1;">
 				<a ng-href="#/superGif/{{gif.id}}">
 					<img ng-src="{{gif.images.fixed_width.url}}"/>
 				</a>
+				<span ng-if="!checkIfGifInFavorites(gif.images.fixed_width.url)" ng-click="addToFavorite(gif.images.fixed_width.url)" class="glyphicon glyphicon-heart" type="button" style="position: absoulte; z-index: 2;"></span>
+				<span ng-if="checkIfGifInFavorites(gif.images.fixed_width.url)" ng-click="removeGif(gif.images.fixed_width.url)" class="glyphicon glyphicon-remove-circle" type="button"></span>
 			</div>
 		</div>
 		<div class="col-xs-3 col-md-3">
@@ -31,6 +36,8 @@
 				<a ng-href="#/superGif/{{gif.id}}">
 					<img ng-src="{{gif.images.fixed_width.url}}"/>
 				</a>
+				<span ng-if="!checkIfGifInFavorites(gif.images.fixed_width.url)" ng-click="addToFavorite(gif.images.fixed_width.url)" class="glyphicon glyphicon-heart" type="button" style="position: absoulte; z-index: 2;"></span>
+				<span ng-if="checkIfGifInFavorites(gif.images.fixed_width.url)" ng-click="removeGif(gif.images.fixed_width.url)" class="glyphicon glyphicon-remove-circle" type="button"></span>
 			</div>
 		</div>
 		<div class="col-xs-3 col-md-3">
@@ -38,6 +45,8 @@
 				<a ng-href="#/superGif/{{gif.id}}">
 					<img ng-src="{{gif.images.fixed_width.url}}"/>
 				</a>
+				<span ng-if="!checkIfGifInFavorites(gif.images.fixed_width.url)" ng-click="addToFavorite(gif.images.fixed_width.url)" class="glyphicon glyphicon-heart" type="button" style="position: absoulte; z-index: 2;"></span>
+				<span ng-if="checkIfGifInFavorites(gif.images.fixed_width.url)" ng-click="removeGif(gif.images.fixed_width.url)" class="glyphicon glyphicon-remove-circle" type="button"></span>
 			</div>
 		</div>
 		<div class="col-xs-3 col-md-3">
@@ -45,6 +54,8 @@
 				<a ng-href="#/superGif/{{gif.id}}">
 					<img ng-src="{{gif.images.fixed_width.url}}"/>
 				</a>
+				<span ng-if="!checkIfGifInFavorites(gif.images.fixed_width.url)" ng-click="addToFavorite(gif.images.fixed_width.url)" class="glyphicon glyphicon-heart" type="button" style="position: absoulte; z-index: 2;"></span>
+				<span ng-if="checkIfGifInFavorites(gif.images.fixed_width.url)" ng-click="removeGif(gif.images.fixed_width.url)" class="glyphicon glyphicon-remove-circle" type="button"></span>
 			</div>
 		</div>
 	</div>

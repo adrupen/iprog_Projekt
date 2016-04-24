@@ -4,8 +4,6 @@ GifTagApp.controller('holidayCtrl', function ($scope, $controller, Model) {
 
 	$controller('gifCtrl',{$scope: $scope});
 
-	$gifArray = new Array();
-
 	$scope.getHolidays = function() {
 	   $scope.status = "Loading Holidays...";
 
@@ -29,17 +27,21 @@ GifTagApp.controller('holidayCtrl', function ($scope, $controller, Model) {
 			 upcoming.push.apply(upcoming, past);
 			 $scope.status = "Holidays loaded";
 			 $scope.holidays = upcoming;
-			 /*
-			 for (holiday in upcoming){
-				 $scope.search(holiday.name, 1, true);
+			 
+			 for (key in upcoming){
+				 
+				 $scope.search(upcoming[key][0].name, 1);
 
-			 }*/
+			 }
+			 $scope.divideCols($scope.holidays);
 
 	   },
 	   function(data){
 			 $scope.status = "There was an error";
 	   });
 	}
+	
+
 
 	$scope.getHolidays();
 	$scope.homePageGifs = Model.homePageGifs;
