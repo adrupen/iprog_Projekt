@@ -1,23 +1,34 @@
 <ng-include src="'partials/header.html'" ng-controller="gifCtrl"></ng-include>
-
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>GifTag</title>
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-	</head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GifTag</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+</head>
+
 <body>
-
-	<div class="jumbotron">
-		<p>Upcoming holiday</p>
-		<a ng-href="#/gifPage/{{holidays[0][0].name}},true" class="thumbnail"> {{holidays[0][0].date.slice(5,length)}} {{holidays[0][0].name}}</a>
-	</div>
-
+    <div class="container jumbotron text-center">
+        <p>Upcoming holiday</p>
+        <a ng-href="#/gifPage/{{holidays[0][0].name}},true" class="thumbnail"> {{holidays[0][0].date.slice(5,length)}} {{holidays[0][0].name}}</a>
+    </div>
+    <div class="container">
+        <div ng-repeat="holiday in holidays">
+            <div class="col-xs-6 col-md-3">
+                <div ng-controller="gifCtrl">
+                    <div ng-init="search(holiday[0].name)">
+                        <img ng-scr="gifs.data[0].images.fixed_height_still.url" />
+                        <div>
+                        </div>
+                        <a ng-href="#/gifPage/{{holiday[0].name}},true" class="thumbnail">{{holiday[0].date.slice(5,length)}} {{holiday[0].name}}</a>
+                    </div>
+                </div>
+            </div>
+</body>
 	<div class="container">
 		<!--<div ng-repeat="holiday in holidays">
 			<div class="col-xs-6 col-md-3">
@@ -83,8 +94,5 @@
 		
 	</div>
 		
-		
 
-
-	</body>
 </html>
