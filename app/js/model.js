@@ -7,6 +7,7 @@ GifTagApp.factory('Model', function ($resource, $cookieStore) {
 	 this.homePageGifs = new Object();
 	 this.favoriteGifs = new Array()
 	 
+	 //$cookieStore.put('favorite', null);
 	 var testCookie = $cookieStore.get('favorite')
 	 if (testCookie != null){
 		 this.favoriteGifs = testCookie;

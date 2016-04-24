@@ -36,6 +36,21 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,$location,Model) {
 		$scope.holidayTag = "Search "+query;
 	}
 	
+	$scope.checkIfGifInFavorites = function(url){
+		var favorites = Model.getFavoriteGifs();
+		if(favorites == null) return false;
+		for(var i=0;i<favorites.length;i++){
+			if(url == favorites[i]) return true;		
+		}
+		
+		return false;
+	}
+	
+	$scope.removeGif = function(gif){
+		console.log("remove")
+		Model.removeGif(gif);
+	}
+	
 	$scope.init = function(){
 		if ($routeParams.search === "true"){
 			$scope.search($routeParams.tag, 50);
@@ -66,10 +81,11 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,$location,Model) {
 		Model.addToFavorite(url)
 	}
 
+	/*
     $scope.getGifCookies = function() {
 	   $scope.gifs = Model.getGifCookies()
     }
-
+	*/
 
 
 
