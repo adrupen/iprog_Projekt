@@ -13,25 +13,25 @@
 		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 	<style>
 		#blackbox {
-			background: black; 
-			opacity: 0.8; 
-			position: relative; 
+			background: black;
+			opacity: 0.8;
+			position: relative;
 			z-index: 2;
 			width: 200px;
       	}
 
       	#holiday-title {
- 			text-align: center; 
- 			color: white; 
- 			position: absolute; 
+ 			text-align: center;
+ 			color: white;
+ 			position: absolute;
  			z-index: 3;
  			width: 100%;
  			margin:	auto;
       	}
 
       	#image {
-			position: relative; 
-			z-index: 1; 
+			position: relative;
+			z-index: 1;
 			opacity: 0.1;
       	}
 
@@ -39,10 +39,11 @@
 
 	</head>
 <body>
+	<h1 style="text-align:center;">This webpage provides Gifs for upcoming Holidays</h1>
+		<div class="jumbotron">
+			<p>Upcoming holiday: {{holidays[0][0].name}}</p>
 
-	<div class="jumbotron">
-		<p>Upcoming holiday: {{holidays[0][0].name}} </p>
-		<a ng-href="#/gifPage/{{holidays[0][0].name}},true"> 
+		<a ng-href="#/gifPage/{{holidays[0][0].name}},true">
 <!-- 			<div id="blackbox"> -->
 				<!-- <div id="holiday-title"> {{holidays[0][0].date.slice(5,length)}} {{holidays[0][0].name}} </div> -->
 				<img ng-src="{{homePageGifs[holidays[0][0].name]}}" style="position: relative; z-index: 1;"/>
@@ -54,18 +55,18 @@
 		<!--<div ng-repeat="holiday in holidays">
 			<div class="col-xs-6 col-md-3">
 				<!--<div style="background-image: url({{homePageGifs[holiday[0].name]}}); position: relative;">
-					
+
 					<a ng-href="#/gifPage/{{holiday[0].name}},true">
 					<img ng-src="{{homePageGifs[holiday[0].name]}}">
 					<h3 style="text-align: center; color: black;">
-						{{holiday[0].date.slice(5,length)}} 
+						{{holiday[0].date.slice(5,length)}}
 						{{holiday[0].name}}
 					</h3>
 					</a>
-				
+
 			</div>
 		</div>  -->
-		
+
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="holiday in Col_1" style="padding: 1px;">
 				<a ng-href="#/gifPage/{{holiday[0].name}},true">
@@ -118,9 +119,9 @@
 				</a>
 			</div>
 		</div>
-		
+
 	</div>
-		
+
 </body>
 
 </html>
