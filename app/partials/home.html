@@ -1,6 +1,7 @@
 <ng-include src="'partials/header.html'" ng-controller="gifCtrl"></ng-include>
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< Updated upstream
 
 <head>
     <meta charset="utf-8">
@@ -10,6 +11,54 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 </head>
+=======
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>GifTag</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+	<style>
+		#blackbox {
+			background: black; 
+			opacity: 0.8; 
+			position: relative; 
+			z-index: 2;
+			width: 200px;
+      	}
+
+      	#holiday-title {
+ 			text-align: center; 
+ 			color: white; 
+ 			position: absolute; 
+ 			z-index: 3;
+ 			width: 100%;
+ 			margin:	auto;
+      	}
+
+      	#image {
+			position: relative; 
+			z-index: 1; 
+			opacity: 0.1;
+      	}
+
+	</style>
+
+	</head>
+<body>
+
+	<div class="jumbotron">
+		<p>Upcoming holiday: {{holidays[0][0].name}} </p>
+		<a ng-href="#/gifPage/{{holidays[0][0].name}},true"> 
+<!-- 			<div id="blackbox"> -->
+				<!-- <div id="holiday-title"> {{holidays[0][0].date.slice(5,length)}} {{holidays[0][0].name}} </div> -->
+				<img ng-src="{{homePageGifs[holidays[0][0].name]}}" style="position: relative; z-index: 1;"/>
+			<!-- </div> -->
+		</a>
+	</div>
+>>>>>>> Stashed changes
 
 <body>
     <div class="container jumbotron text-center">
@@ -48,12 +97,12 @@
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="holiday in Col_1" style="padding: 1px;">
 				<a ng-href="#/gifPage/{{holiday[0].name}},true">
-					<div style="background: black; opacity: 0.5; position: relative; z-index: 2;">
-					<h3 style="text-align: center; color: white; position: absolute; z-index: 3;">
-						{{holiday[0].date.slice(5,length)}} 
-						{{holiday[0].name}}
-					</h3>
-					<img ng-src="{{homePageGifs[holiday[0].name]}}" style="position: relative; z-index: 1; opacity: 0.5"/>
+					<div id='blackbox'>
+						<h3 id='holiday-title'>
+							{{holiday[0].date.slice(5,length)}} </br>
+							{{holiday[0].name}}
+						</h3>
+					<img id="image" height="200 px" width="200 px" ng-src="{{homePageGifs[holiday[0].name]}}"/>
 					</div>
 				</a>
 			</div>
@@ -61,33 +110,39 @@
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="holiday in Col_2" style="padding: 1px;">
 				<a ng-href="#/gifPage/{{holiday[0].name}},true">
-					<h3 style="text-align: center; color: black;">
-						{{holiday[0].date.slice(5,length)}} 
-						{{holiday[0].name}}
-					</h3>
-					<img ng-src="{{homePageGifs[holiday[0].name]}}"/>
+					<div id='blackbox'>
+						<h3 id='holiday-title'>
+							{{holiday[0].date.slice(5,length)}} </br>
+							{{holiday[0].name}}
+						</h3>
+						<img id="image" height="200 px" width="200 px" ng-src="{{homePageGifs[holiday[0].name]}}"/>
+					</div>
 				</a>
 			</div>
 		</div>
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="holiday in Col_3" style="padding: 1px;">
 				<a ng-href="#/gifPage/{{holiday[0].name}},true">
-					<h3 style="text-align: center; color: black;">
-						{{holiday[0].date.slice(5,length)}} 
-						{{holiday[0].name}}
-					</h3>
-					<img ng-src="{{homePageGifs[holiday[0].name]}}"/>
+					<div id='blackbox'>
+						<h3 id='holiday-title'>
+							{{holiday[0].date.slice(5,length)}} </br>
+							{{holiday[0].name}}
+						</h3>
+						<img id="image" height="200 px" width="200 px" ng-src="{{homePageGifs[holiday[0].name]}}"/>
+					</div>
 				</a>
 			</div>
 		</div>
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="holiday in Col_4" style="padding: 1px;">
 				<a ng-href="#/gifPage/{{holiday[0].name}},true">
-					<h3 style="text-align: center; color: black;">
-						{{holiday[0].date.slice(5,length)}} 
-						{{holiday[0].name}}
-					</h3>
-					<img ng-src="{{homePageGifs[holiday[0].name]}}"/>
+					<div id='blackbox'>
+						<h3 id='holiday-title'>
+							{{holiday[0].date.slice(5,length)}} </br>
+							{{holiday[0].name}}
+						</h3>
+						<img id="image" height="200 px" width="200 px"ng-src="{{homePageGifs[holiday[0].name]}}"/>
+					</div>
 				</a>
 			</div>
 		</div>
