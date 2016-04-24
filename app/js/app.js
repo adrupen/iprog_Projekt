@@ -8,7 +8,7 @@
 // also see that we included separate JavaScript files for these modules. Angular
 // has other core modules that you might want to use and explore when you go deeper
 // into developing Angular applications. For this lab, these two will suffice.
-var GifTagApp = angular.module('GifTag', ['ngRoute','ngResource','ngCookies']);
+var GifTagApp = angular.module('GifTag', ['ngRoute','ngResource']);
 
 
 // Here we configure our application module and more specifically our $routeProvider.
@@ -47,15 +47,10 @@ GifTagApp.config(['$routeProvider',
         templateUrl: 'partials/gifPage.html',
         controller: 'gifCtrl'
       }).
-    
-    when('/superGif/:gif', {
+      when('/superGif/:gif', {
           templateUrl: 'partials/superGif.html',
           controller: 'superGifCrtl'
       }).
-     when('/favoriteGif', {
-          templateUrl: 'partials/favoriteGif.html',
-          controller: 'favoriteGifCtrl'
-      }).   
       otherwise({
         redirectTo: '/home'
       });

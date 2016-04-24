@@ -1,9 +1,4 @@
 <ng-include src="'partials/header.html'" ng-controller="gifCtrl"></ng-include>
-<<<<<<< HEAD
-=======
-<div ng-init="init()"></div>
-
->>>>>>> origin/master
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,40 +47,4 @@
     </div>
 </body>
 
-<<<<<<< HEAD
-=======
-	<div class="container">
-		<div class="col-xs-3 col-md-3">
-			<div ng-repeat="gif in Col_1" style="padding: 10px; position: relative; z-index: 1;">
-				<a ng-href="#/superGif/{{gif.id}}">
-					<img ng-src="{{gif.images.fixed_width.url}}"/>
-				</a>
-				<span ng-click="addToFavorite(gif.images.fixed_width.url)" class="glyphicon glyphicon-heart" type="button" style="position: absoulte; z-index: 2;"> Favorite</span>
-			</div>
-		</div>
-		<div class="col-xs-3 col-md-3">
-			<div ng-repeat="gif in Col_2" style="padding: 1px;">
-				<a ng-href="#/superGif/{{gif.id}}">
-					<img ng-src="{{gif.images.fixed_width.url}}"/>
-				</a>
-			</div>
-		</div>
-		<div class="col-xs-3 col-md-3">
-			<div ng-repeat="gif in Col_3" style="padding: 1px;">
-				<a ng-href="#/superGif/{{gif.id}}">
-					<img ng-src="{{gif.images.fixed_width.url}}"/>
-				</a>
-			</div>
-		</div>
-		<div class="col-xs-3 col-md-3">
-			<div ng-repeat="gif in Col_4"  style="padding: 1px;">
-				<a ng-href="#/superGif/{{gif.id}}">
-					<img ng-src="{{gif.images.fixed_width.url}}"/>
-				</a>
-			</div>
-		</div>
-	</div>
-
-	</body>
->>>>>>> origin/master
 </html>
