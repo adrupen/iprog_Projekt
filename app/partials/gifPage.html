@@ -6,6 +6,7 @@
 
 	<div class="jumbotron">
 		<p>Search: {{holidayTag}}</p>
+		Press heart to save favorites
 	</div>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +22,7 @@
 
 	<div class="container">
 		<div class="col-xs-3 col-md-3">
-			<p>Press heart to save favorites</p>
+			
 			<div ng-repeat="gif in Col_1" style="padding: 1px; position: relative; z-index: 1;">
 				<a ng-href="#/superGif/{{gif.id}}">
 					<img ng-src="{{gif.images.fixed_width.url}}"/>

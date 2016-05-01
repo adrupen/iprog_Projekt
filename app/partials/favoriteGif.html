@@ -30,7 +30,7 @@
 		</div>
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="gif in Col_2" style="padding: 1px;">
-				<a ng-href="#/superGif/{{gif.id}}">
+				<a ng-href="#/superGif/{{gif.substring(30).replace('200w.gif','')}}">
 					<img ng-src="{{gif}}"/>
 				</a>
 				<span ng-click="removeGif(gif)" class="glyphicon glyphicon-remove-circle" type="button"></span>
@@ -38,7 +38,7 @@
 		</div>
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="gif in Col_3" style="padding: 1px;">
-				<a ng-href="#/superGif/{{gif.id}}">
+				<a ng-href="#/superGif/{{gif.substring(30).replace('200w.gif','')}}">
 					<img ng-src="{{gif}}"/>
 				</a>
 				<span ng-click="removeGif(gif)" class="glyphicon glyphicon-remove-circle" type="button"></span>
@@ -46,7 +46,7 @@
 		</div>
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="gif in Col_4"  style="padding: 1px;">
-				<a ng-href="#/superGif/{{gif.id}}">
+				<a ng-href="#/superGif/{{gif.substring(30).replace('200w.gif','')}}">
 					<img ng-src="{{gif}}"/>
 				</a>
 				<span ng-click="removeGif(gif)" class="glyphicon glyphicon-remove-circle" type="button"></span>

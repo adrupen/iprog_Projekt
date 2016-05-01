@@ -1,6 +1,7 @@
-GifTagApp.controller('superGifCrtl', function ($scope,$routeParams,Model) {
+GifTagApp.controller('superGifCrtl', function ($scope,$routeParams,$controller,Model) {
 
-	$scope.tags = new Array();
+	$controller('gifCtrl',{$scope: $scope});
+	$scope.tagList = new Array();
 
 	$scope.gif = function(id) {
 
@@ -20,8 +21,8 @@ GifTagApp.controller('superGifCrtl', function ($scope,$routeParams,Model) {
 		
 		$scope.tags = $scope.gif.slug.replace($routeParams.gif, "");
 		$scope.tags = $scope.tags.substring(0,$scope.tags.length-1);
-		$scope.tags = "#"+$scope.tags.replace(/-/g, " #");
-		
+		//$scope.tags = "#"+$scope.tags.replace(/-/g, " #");
+		$scope.tagList = $scope.tags.split('-');
 	}
 
 	$scope.gif($routeParams.gif);
