@@ -18,8 +18,6 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,$location,$firebas
 			 if (data.data.length > 0){
 				 $scope.gifs=data.data;
 				 $scope.status = "Found " + data.data.length + " results";
-
-				 //console.log($scope.gifs[0].images.fixed_width);
 				 
 				 if(!$routeParams.search) {
 					 Model.addHomePageGif($scope.gifs[0].images.fixed_width.url, query);
@@ -37,14 +35,13 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,$location,$firebas
 	
 	$scope.go = function(query){
 		path = "/gifPage/"+query+"+holiday,true";
-		console.log(path);
 		$location.path(path);
 		$scope.holidayTag = "Search "+query;
 	}
 	
 	$scope.checkIfGifInFavorites = function(id){
 		try{
-			if($scope.favGifs[id] != null) return true;
+			if($scope.favGifs.gifs[id] != null) return true;
 		}
 		catch(err){
 			return false
@@ -53,10 +50,7 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,$location,$firebas
 	}
 	
 	$scope.removeGif = function(id){
-		delete $scope.favGifs[id];
-		console.log("remove");
-		console.log($scope.favGifs);
-		//Model.removeGif(gif);
+		delete $scope.favGifs.gifs[id];
 	}
 	
 	$scope.init = function(){
@@ -85,16 +79,13 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,$location,$firebas
 	}
 
 	$scope.addToFavorite = function(id, url) {
-		console.log("add");
-		$scope.favGifs[id] = {url: url, id: id};
-		//Model.addToFavorite(url)
+		
+		if($scope.favGifs.gifs == undefined){
+			$scope.favGifs.gifs = new Object();
+		}
+		$scope.favGifs.gifs[id] = {url: url, id: id};
 	}
 
-	/*
-    $scope.getGifCookies = function() {
-	   $scope.gifs = Model.getGifCookies()
-    }
-	*/
 
 
 

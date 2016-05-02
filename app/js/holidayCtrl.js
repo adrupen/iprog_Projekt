@@ -9,7 +9,6 @@ GifTagApp.controller('holidayCtrl', function ($scope, $controller, Model) {
 
 	   Model.calendar.get({},
 	   function(data){
-			 //console.log(data.holidays.'2016-01-01'[0]);
 			 var upcoming = new Array();
 			 var past = new Array();
 			 for (var key in data.holidays) {
