@@ -24,5 +24,6 @@ GifTagApp.controller('superGifCrtl', function ($scope,$routeParams,$controller,M
 	}
 
 	$scope.gif($routeParams.gif);
+	if (window.stButtons){stButtons.locateElements();}
 
 });
