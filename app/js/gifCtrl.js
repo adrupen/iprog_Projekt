@@ -1,6 +1,12 @@
 
 
-GifTagApp.controller('gifCtrl', function ($scope,$routeParams,$location,Model) {
+GifTagApp.controller('gifCtrl', function ($scope,$routeParams,$location,$firebaseObject,Model) {
+	
+	var ref = new Firebase("https://fiery-fire-1107.firebaseio.com/");
+	
+	var syncObject = $firebaseObject(ref);
+	
+	syncObject.$bindTo($scope, "favGifs");
 	
 	$scope.holidayTag = $routeParams.tag;
 
@@ -36,19 +42,21 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,$location,Model) {
 		$scope.holidayTag = "Search "+query;
 	}
 	
-	$scope.checkIfGifInFavorites = function(url){
-		var favorites = Model.getFavoriteGifs();
-		if(favorites == null) return false;
-		for(var i=0;i<favorites.length;i++){
-			if(url == favorites[i]) return true;		
+	$scope.checkIfGifInFavorites = function(id){
+		try{
+			if($scope.favGifs[id] != null) return true;
 		}
-		
+		catch(err){
+			return false
+		}
 		return false;
 	}
 	
-	$scope.removeGif = function(gif){
-		console.log("remove")
-		Model.removeGif(gif);
+	$scope.removeGif = function(id){
+		delete $scope.favGifs[id];
+		console.log("remove");
+		console.log($scope.favGifs);
+		//Model.removeGif(gif);
 	}
 	
 	$scope.init = function(){
@@ -76,9 +84,10 @@ GifTagApp.controller('gifCtrl', function ($scope,$routeParams,$location,Model) {
 		}
 	}
 
-	$scope.addToFavorite = function(url) {
-		console.log("boop");
-		Model.addToFavorite(url)
+	$scope.addToFavorite = function(id, url) {
+		console.log("add");
+		$scope.favGifs[id] = {url: url, id: id};
+		//Model.addToFavorite(url)
 	}
 
 	/*

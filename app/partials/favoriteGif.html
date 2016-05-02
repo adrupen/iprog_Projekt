@@ -23,33 +23,33 @@
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="gif in Col_1" style="padding: 1px;">
 				<a ng-href="#/superGif/{{gif.id}}">
-					<img ng-src="{{gif}}"/>
+					<img ng-src="{{gif.url}}"/>
 				</a>
-				<span ng-click="removeGif(gif)" class="glyphicon glyphicon-remove-circle" type="button"></span>
+				<span ng-click="removeGif(gif.id)" class="glyphicon glyphicon-remove-circle" type="button"></span>
 			</div>
 		</div>
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="gif in Col_2" style="padding: 1px;">
-				<a ng-href="#/superGif/{{gif.substring(30).replace('200w.gif','')}}">
-					<img ng-src="{{gif}}"/>
+				<a ng-href="#/superGif/{{gif.id}}">
+					<img ng-src="{{gif.url}}"/>
 				</a>
-				<span ng-click="removeGif(gif)" class="glyphicon glyphicon-remove-circle" type="button"></span>
+				<span ng-click="removeGif(gif.id)" class="glyphicon glyphicon-remove-circle" type="button"></span>
 			</div>
 		</div>
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="gif in Col_3" style="padding: 1px;">
-				<a ng-href="#/superGif/{{gif.substring(30).replace('200w.gif','')}}">
-					<img ng-src="{{gif}}"/>
+				<a ng-href="#/superGif/{{gif.id}}">
+					<img ng-src="{{gif.url}}"/>
 				</a>
-				<span ng-click="removeGif(gif)" class="glyphicon glyphicon-remove-circle" type="button"></span>
+				<span ng-click="removeGif(gif.id)" class="glyphicon glyphicon-remove-circle" type="button"></span>
 			</div>
 		</div>
 		<div class="col-xs-3 col-md-3">
 			<div ng-repeat="gif in Col_4"  style="padding: 1px;">
-				<a ng-href="#/superGif/{{gif.substring(30).replace('200w.gif','')}}">
-					<img ng-src="{{gif}}"/>
+				<a ng-href="#/superGif/{{gif.id}}">
+					<img ng-src="{{gif.url}}"/>
 				</a>
-				<span ng-click="removeGif(gif)" class="glyphicon glyphicon-remove-circle" type="button"></span>
+				<span ng-click="removeGif(gif.id)" class="glyphicon glyphicon-remove-circle" type="button"></span>
 			</div>
 		</div>
 	</div>

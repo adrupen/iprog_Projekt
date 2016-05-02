@@ -1,8 +1,8 @@
 
 // Back End Modellen
 
-GifTagApp.factory('Model', function ($resource, $cookieStore) {
-
+GifTagApp.factory('Model', function ($resource, $cookieStore, $firebaseObject) {
+	
 	 this.storedGifs = new Array();
 	 this.homePageGifs = new Object();
 	 this.favoriteGifs = new Array()
