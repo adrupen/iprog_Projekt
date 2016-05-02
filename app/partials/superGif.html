@@ -12,6 +12,12 @@
     <title>SuperGif</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <!-- Social media share -->
+    <!-- 
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script> 
+    -->
+<!--    <script type="text/javascript">stLight.options({publisher: "4835527b-d913-400a-876f-4b5878288d8f", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script> -->
 </head>
 
 <body>
@@ -23,13 +29,23 @@
 	    </span>
     </div>
 	<div class="container text-center">
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_linkedin_large' displayText='LinkedIn'></span>
+        <span class='st_pinterest_large' displayText='Pinterest'></span>
+        </br>
+        </br>  
 		<img ng-src="{{gif.images.original.url}}" style="width: 500px;"/>
 	</div>
     <div style="text-align: center">
         </br>
         <span ng-if="!checkIfGifInFavorites(gif.id)" ng-click="addToFavorite(gif.id, gif.images.fixed_width.url)" class="glyphicon glyphicon-heart" type="button" style="position: absoulte; z-index: 2;"></span>
         <span ng-if="checkIfGifInFavorites(gif.id)" ng-click="removeGif(gif.id, gif.images.fixed_width.url)" class="glyphicon glyphicon-remove-circle" type="button"></span>
+
+
     </div>
+
+
 </body>
 
 </html>

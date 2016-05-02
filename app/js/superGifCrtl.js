@@ -4,8 +4,8 @@ GifTagApp.controller('superGifCrtl', function ($scope,$routeParams,$controller,M
 	$scope.tagList = new Array();
 
 	$scope.gif = function(id) {
-
-		Model.giphyId.get({ids: id},
+		id = id.split("&st")
+		Model.giphyId.get({ids: id[0]},
 		function(data){
 			if (data.data) {
 				$scope.gif = data.data[0];
@@ -18,11 +18,9 @@ GifTagApp.controller('superGifCrtl', function ($scope,$routeParams,$controller,M
 	}
 	
 	$scope.divideTags = function(){
-		
-		$scope.tags = $scope.gif.slug.replace($routeParams.gif, "");
-		$scope.tags = $scope.tags.substring(0,$scope.tags.length-1);
-		//$scope.tags = "#"+$scope.tags.replace(/-/g, " #");
-		$scope.tagList = $scope.tags.split('-');
+			$scope.tags = $scope.gif.slug.replace($routeParams.gif, "");
+			$scope.tags = $scope.tags.substring(0,$scope.tags.length-1);
+			$scope.tagList = $scope.tags.split('-');
 	}
 
 	$scope.gif($routeParams.gif);
